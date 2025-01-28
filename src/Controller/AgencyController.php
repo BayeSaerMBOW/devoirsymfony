@@ -49,7 +49,7 @@ class AgencyController extends AbstractController
         $pagination = $paginator->paginate(
             $queryBuilder,
             $request->query->getInt('page', 1),
-            1
+            2
         );
 
         return $this->render('agency/index.html.twig', [

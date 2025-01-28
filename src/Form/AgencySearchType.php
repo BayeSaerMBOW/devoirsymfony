@@ -25,7 +25,7 @@ class AgencySearchType extends AbstractType
     {
         $resolver->setDefaults([
             'method' => 'GET',
-            'csrf_protection' => false  // Désactive la protection CSRF pour les formulaires GET
+            'csrf_protection' => false  
         ]);
     }
 }
