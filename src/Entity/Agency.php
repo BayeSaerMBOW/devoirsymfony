@@ -4,8 +4,13 @@ namespace App\Entity;
 
 use App\Repository\AgencyRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: AgencyRepository::class)]
+#[UniqueEntity(
+    fields: ['numero'],
+    message: 'Ce numéro d\'agence existe déjà.'
+)]
 class Agency
 {
     #[ORM\Id]
@@ -13,7 +18,7 @@ class Agency
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $numero = null;
 
     #[ORM\Column(length: 255)]
